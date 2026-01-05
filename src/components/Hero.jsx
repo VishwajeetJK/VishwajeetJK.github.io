@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import vishwajeetImage from '../assets/vishwajeet.png'
+import resumePdf from '../assets/Vishwajeet 2026 Resume.pdf'
+import coverLetterPdf from '../assets/Vishwajeet 2026 Cover Letter.pdf'
 import CatDoodle from './CatDoodle'
 import ParticleBackground from './ParticleBackground'
+import PDFModal from './PDFModal'
 import './Hero.css'
 
 const Hero = () => {
+  const [selectedPdf, setSelectedPdf] = useState(null)
+  const [pdfTitle, setPdfTitle] = useState('')
+
+  const handleResumeClick = (e) => {
+    e.preventDefault()
+    setPdfTitle('Vishwajeet 2026 Resume')
+    setSelectedPdf(resumePdf)
+  }
+
+  const handleCoverLetterClick = (e) => {
+    e.preventDefault()
+    setPdfTitle('Vishwajeet 2026 Cover Letter')
+    setSelectedPdf(coverLetterPdf)
+  }
+
   return (
     <section id="home" className="hero">
       <ParticleBackground />
@@ -26,12 +44,18 @@ const Hero = () => {
             and create meaningful impact.
           </p>
           <div className="hero-buttons">
-            <a href="#resume" className="hero-button">Resume</a>
-            <a href="#cover-letter" className="hero-button">Cover Letter</a>
+            <a href="#" className="hero-button" onClick={handleResumeClick}>Resume</a>
+            <a href="#" className="hero-button" onClick={handleCoverLetterClick}>Cover Letter</a>
           </div>
         </div>
       </div>
       <CatDoodle />
+      <PDFModal 
+        isOpen={selectedPdf !== null}
+        onClose={() => setSelectedPdf(null)}
+        pdfUrl={selectedPdf}
+        title={pdfTitle}
+      />
     </section>
   )
 }
