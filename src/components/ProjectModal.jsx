@@ -15,6 +15,16 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
             {project.event && <p className="modal-year">{project.event}</p>}
           </div>
           <div className="modal-header-actions">
+            {project.link && (
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="modal-link-header"
+              >
+                View Project →
+              </a>
+            )}
             {project.projectLink && (
               <a 
                 href={project.projectLink} 
@@ -58,18 +68,6 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
             <div className="modal-summary">
               <h3 className="summary-title">Description</h3>
               <p className="summary-text">{project.description}</p>
-            </div>
-          )}
-          {project.link && (
-            <div className="modal-links">
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="modal-link"
-              >
-                View Project →
-              </a>
             </div>
           )}
         </div>
