@@ -20,7 +20,7 @@ const TechProjects = () => {
       summary: "TuskCPA is an AI-powered accounting automation platform designed to revolutionize accounting practices by automating hundreds of client tasks. The platform handles complex tax returns, audits, and financial reports with intelligent workflows that integrate seamlessly with QuickBooks, Intuit, Xero, and other accounting tools. Built by founders with experience from the Bill & Melinda Gates Foundation, Times of India, Columbia Business School, IEOR, and LVMH, TuskCPA combines cutting-edge AI technology with deep accounting expertise to streamline operations and enhance productivity for accounting firms.",
       color: '#ea4335',
       image: tuskcpaImage,
-      link: null
+      link: "https://www.tuskcpa.com/"
     },
     {
       name: "Capital Shield AI",
