@@ -1,0 +1,257 @@
+.work-experience {
+  padding: 120px 24px;
+  background: var(--bg-white);
+  position: relative;
+  overflow: visible;
+}
+
+.work-experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.section-description {
+  font-size: 18px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 64px;
+  line-height: 1.6;
+}
+
+.work-experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.work-experience-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.work-experience-card-link {
+  cursor: pointer;
+}
+
+.work-experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.work-experience-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(66, 133, 244, 0.2);
+  transform: translateY(-2px);
+}
+
+.work-experience-card:hover::before {
+  opacity: 1;
+}
+
+.work-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.work-card-logo-container {
+  flex-shrink: 0;
+}
+
+.work-card-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  border: 2px solid var(--accent-color);
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.work-card-logo:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+}
+
+.work-card-logo:active {
+  transform: scale(0.98);
+}
+
+.company-logo {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.logo-placeholder {
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--accent-color) 50%,
+    transparent 50%,
+    transparent 100%
+  );
+  border-radius: 8px;
+  opacity: 0.1;
+  display: block;
+}
+
+.work-card-title-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.work-card-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.3px;
+  line-height: 1.4;
+}
+
+.work-card-company {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.work-card-period {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding: 6px 12px;
+  background: var(--bg-gray);
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+.work-card-content {
+  margin-top: 16px;
+}
+
+.work-card-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 968px) {
+  .work-experience {
+    padding: 80px 24px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-description {
+    font-size: 16px;
+    margin-bottom: 48px;
+  }
+
+  .work-experience-card {
+    padding: 24px;
+  }
+
+  .work-card-title {
+    font-size: 20px;
+  }
+
+  .work-card-company {
+    font-size: 15px;
+  }
+
+  .work-card-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-experience {
+    padding: 80px 16px;
+  }
+
+  .work-card-header {
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .work-card-logo {
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+  }
+
+  .work-card-title-section {
+    flex: 1;
+  }
+
+  .work-card-period {
+    align-self: flex-start;
+  }
+
+  .work-experience-card {
+    padding: 20px;
+  }
+
+  .work-card-title {
+    font-size: 18px;
+  }
+
+  .work-card-company {
+    font-size: 14px;
+  }
+
+  .work-card-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}

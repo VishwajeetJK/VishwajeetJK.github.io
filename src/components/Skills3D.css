@@ -1,0 +1,20 @@
+.skills-3d-content {
+  padding: 40px;
+  background: transparent;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.skills-description {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}

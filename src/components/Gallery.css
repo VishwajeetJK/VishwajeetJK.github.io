@@ -1,0 +1,260 @@
+.gallery {
+  padding: 120px 24px;
+  background: var(--bg-white);
+  position: relative;
+  overflow: visible;
+}
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.section-description {
+  font-size: 18px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.gallery-collage {
+  columns: 4;
+  column-gap: 8px;
+  line-height: 0;
+}
+
+@media (min-width: 1200px) {
+  .gallery-collage {
+    columns: 5;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-collage {
+    columns: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-collage {
+    columns: 2;
+    column-gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-collage {
+    columns: 1;
+  }
+}
+
+.gallery-frame {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 8px;
+  break-inside: avoid;
+  padding: 0;
+  line-height: 0;
+}
+
+.gallery-frame:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.gallery-frame-small {
+  /* Keep smaller size for image 10 */
+}
+
+.gallery-frame-large {
+  /* Keep larger size for images 11, 12, 13, 16 */
+}
+
+.frame-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid var(--frame-color);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gallery-frame:hover .frame-border {
+  opacity: 1;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-frame:hover .gallery-image {
+  transform: scale(1.03);
+}
+
+.frame-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
+  z-index: 1;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.gallery-frame:hover .frame-overlay {
+  opacity: 1;
+}
+
+.frame-number {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal styles */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  line-height: 1;
+  padding: 0;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-description {
+    font-size: 16px;
+    margin-bottom: 48px;
+  }
+
+  .gallery-frame {
+    margin-bottom: 12px;
+  }
+
+  .modal-close {
+    top: -50px;
+    right: -10px;
+  }
+}
+

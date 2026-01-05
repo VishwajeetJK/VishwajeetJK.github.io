@@ -1,0 +1,65 @@
+.pikachu-doodle-container {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: visible;
+  background: transparent;
+  display: block;
+  margin: 40px 0 0 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.pikachu-doodle-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.pikachu-gif {
+  width: 150px;
+  height: auto;
+  max-height: 100px;
+  animation: pikachuWalk 8s ease-in-out infinite;
+  object-fit: contain;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  z-index: 11;
+}
+
+@keyframes pikachuWalk {
+  0% {
+    transform: translate(calc(10vw - 75px), 0) scaleX(1);
+  }
+  48% {
+    transform: translate(calc(90vw - 75px), 0) scaleX(1);
+  }
+  50% {
+    transform: translate(calc(90vw - 75px), 0) scaleX(-1);
+  }
+  98% {
+    transform: translate(calc(10vw - 75px), 0) scaleX(-1);
+  }
+  100% {
+    transform: translate(calc(10vw - 75px), 0) scaleX(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .pikachu-doodle-container {
+    height: 200px;
+    margin: 40px 0 0 0;
+  }
+  
+  .pikachu-gif {
+    width: 120px;
+    max-height: 80px;
+  }
+}
+

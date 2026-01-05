@@ -1,0 +1,262 @@
+.extracurriculars {
+  padding: 120px 24px;
+  background: var(--bg-gray);
+  position: relative;
+  overflow: visible;
+}
+
+.extracurriculars-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.section-description {
+  font-size: 18px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 64px;
+  line-height: 1.6;
+}
+
+.extracurriculars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.extracurricular-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.extracurricular-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.extracurricular-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(66, 133, 244, 0.2);
+  transform: translateY(-2px);
+}
+
+.extracurricular-card:hover::before {
+  opacity: 1;
+}
+
+.extracurricular-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.extracurricular-card-link:hover .extracurricular-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(66, 133, 244, 0.2);
+}
+
+.extracurricular-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.extracurricular-logo-container {
+  flex-shrink: 0;
+}
+
+.extracurricular-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  border: 2px solid var(--accent-color);
+  background: var(--bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.extracurricular-logo:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+}
+
+.extracurricular-logo:active {
+  transform: scale(0.98);
+}
+
+.organization-logo {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.logo-placeholder {
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--accent-color) 50%,
+    transparent 50%,
+    transparent 100%
+  );
+  border-radius: 8px;
+  opacity: 0.1;
+  display: block;
+}
+
+.extracurricular-title-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.extracurricular-card-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  letter-spacing: -0.3px;
+  line-height: 1.4;
+}
+
+.extracurricular-organization {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.extracurricular-period {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding: 6px 12px;
+  background: var(--bg-gray);
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+.extracurricular-card-content {
+  margin-top: 16px;
+}
+
+.extracurricular-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 968px) {
+  .extracurriculars {
+    padding: 80px 24px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-description {
+    font-size: 16px;
+    margin-bottom: 48px;
+  }
+
+  .extracurricular-card {
+    padding: 24px;
+  }
+
+  .extracurricular-card-title {
+    font-size: 20px;
+  }
+
+  .extracurricular-organization {
+    font-size: 15px;
+  }
+
+  .extracurricular-description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .extracurriculars {
+    padding: 80px 16px;
+  }
+
+  .extracurricular-card-header {
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .extracurricular-logo {
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+  }
+
+  .extracurricular-title-section {
+    flex: 1;
+  }
+
+  .extracurricular-period {
+    align-self: flex-start;
+  }
+
+  .extracurricular-card {
+    padding: 20px;
+  }
+
+  .extracurricular-card-title {
+    font-size: 18px;
+  }
+
+  .extracurricular-organization {
+    font-size: 14px;
+  }
+
+  .extracurricular-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
