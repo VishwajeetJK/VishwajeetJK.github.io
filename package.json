@@ -9,6 +9,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@react-three/drei": "^9.88.13",
     "@react-three/fiber": "^8.15.11",
     "framer-motion": "^10.16.16",
