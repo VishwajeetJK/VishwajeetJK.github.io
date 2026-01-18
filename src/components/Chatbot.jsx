@@ -4,8 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import './Chatbot.css'
 
 // Initialize Gemini API
-// WARNING: Exposing API key on client side is not recommended for production
-const API_KEY = 'AIzaSyBW2ZTHvC1SnXP3gujC4xa-2PANWvAkaWY'
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY
 const genAI = new GoogleGenerativeAI(API_KEY)
 
 const VISHWAJEET_CONTEXT = `
@@ -79,9 +78,9 @@ He bridges the gap between *Technical Engineering* and *Product Strategy*. He do
 
 const Chatbot = ({ onClose }) => {
   const [messages, setMessages] = useState([
-    { 
-      text: "Hello! I'm Vishwajeet's AI Assistant. I can tell you about his experience, skills, or discuss how he can help your team. Ask me anything!", 
-      sender: 'bot' 
+    {
+      text: "Hello! I'm Vishwajeet's AI Assistant. I can tell you about his experience, skills, or discuss how he can help your team. Ask me anything!",
+      sender: 'bot'
     }
   ])
   const [inputValue, setInputValue] = useState('')
@@ -119,7 +118,7 @@ const Chatbot = ({ onClose }) => {
 
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-pro" })
-      
+
       const chat = model.startChat({
         history: [
           {
@@ -145,8 +144,8 @@ const Chatbot = ({ onClose }) => {
       setMessages(prev => [...prev, { text: text, sender: 'bot' }])
     } catch (error) {
       console.error("Gemini API Error:", error)
-      setMessages(prev => [...prev, { 
-        text: "I apologize, but I'm having trouble connecting to my brain right now. Please try again in a moment.", 
+      setMessages(prev => [...prev, {
+        text: "I apologize, but I'm having trouble connecting to my brain right now. Please try again in a moment.",
         sender: 'bot',
         isError: true
       }])
@@ -165,7 +164,7 @@ const Chatbot = ({ onClose }) => {
           </div>
           <button className="modal-close" onClick={onClose}>×</button>
         </div>
-        
+
         <div className="chatbot-messages">
           {messages.map((msg, index) => (
             <div key={index} className={`chatbot-message ${msg.sender} ${msg.isError ? 'error' : ''}`}>
