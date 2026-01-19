@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
-import Chatbot from './Chatbot'
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false)
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,12 +56,7 @@ const Navbar = () => {
             ))}
           </div>
           <div className="navbar-right">
-            <div
-              className="chatbot-diamond"
-              onClick={() => setIsChatbotOpen(true)}
-            >
-              <span className="sqrt-x-icon">√X</span>
-            </div>
+
             <button
               className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -75,9 +70,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {isChatbotOpen && (
-        <Chatbot onClose={() => setIsChatbotOpen(false)} />
-      )}
+
     </>
   )
 }
